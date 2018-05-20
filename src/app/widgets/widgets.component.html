@@ -9,11 +9,17 @@
       </md-card-header>
       <md-card-content>
         <md-list>
-          <md-list-item *ngFor="let widget of widgets" (click)="selected(widget)">
+          <!-- 3. Use ngFor to display the iteration -->
+          <!-- 5. Click: when the list item is clicked, is calling selected() and passing in the widget that is scoped to that iteration -->
+          <md-list-item 
+              *ngFor="let widget of widgets" 
+              (click)="selected(widget)">
+            <!-- 4. Binding property from the collection -->
             <h3 md-line>{{widget.name}}</h3>
             <button md-icon-button>
               <md-icon>close</md-icon>
             </button>
+            <!-- 4. Binding property from the collection -->
             <p md-line>
               {{widget.description}}
             </p>
@@ -29,17 +35,20 @@
       <md-card-header>
         <md-card-title>
           <h1>
+            <!-- 7. Using ngIf to show an alternate message if no widget is selected. If selectedWidget is true, show it, if not, show the prompt template. -->
             <span *ngIf="selectedWidget?.id; else prompt">{{selectedWidget.name}}</span>
-            <ng-template #prompt>Select</ng-template>
+            <ng-template #prompt>Select a Widget</ng-template>
           </h1>
         </md-card-title>
       </md-card-header>
       <form>
         <md-card-content>
+          <!-- 6. We are just plugin it here to see it. We are just rendering it. We just want to see that we are properly selecting a widget. It's a click event that is calling a method, and passing in the widget we have selected. -->
           <pre>{{ selectedWidget | json }}</pre>
         </md-card-content>
         <md-card-actions>
           <button type="submit" md-button>Save</button>
+          <!-- 8. We are sending a null message when no widget is selected. -->
           <button type="button" md-button (click)="selected(null)">Cancel</button>
         </md-card-actions>
       </form>

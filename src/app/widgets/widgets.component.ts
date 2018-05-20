@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./widgets.component.css']
 })
 export class WidgetsComponent implements OnInit {
+  //1. Creating a property to use it later
   selectedWidget = null;
   widgets = [
     {
@@ -50,6 +51,7 @@ export class WidgetsComponent implements OnInit {
   ngOnInit() {
   }
 
+  //2. Method that takes a widget, it sets this.selectedWidget to whatever widget we send in.
   selected(widget) {
     this.selectedWidget = widget;
   }
