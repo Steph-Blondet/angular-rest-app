@@ -3,6 +3,7 @@ import { Widget } from './widget.model';
 
 @Injectable()
 export class WidgetsService {
+  // 1. Moving the widgets collection from the widgets.component.ts file to here (the service file)
   widgets: Widget[] = [
     {
       id: 1,

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
+// 3. Import the Service to consume it
 import { ItemsService, WidgetsService } from './shared';
 
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { WidgetsComponent } from './widgets/widgets.component';
     AppRoutingModule,
     AppMaterialModule
   ],
+  // 3. Import the Service to consume it
   providers: [ItemsService, WidgetsService],
   bootstrap: [AppComponent]
 })
