@@ -71,6 +71,11 @@
       "id": 7,
       "name": "Violet Widget",
       "description": "This is a violet widget"
+    },
+    {
+      "id": 8,
+      "name": "Testing",
+      "description": "Mode!"
     }
   ]
 }
