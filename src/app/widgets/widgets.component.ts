@@ -22,16 +22,19 @@ export class WidgetsComponent implements OnInit {
     this.currentWidget = { id: null, name: '', description: ''};
   }
 
+  // 2. Creating methods
   selectWidget(widget) {
     this.currentWidget = widget;
   }
 
   deleteWidget(widget) {
-    console.log('DELETING', widget)
+    console.log('DELETING', widget);
+    this.reset();
   }
 
   saveWidget(widget) {
     console.log('SAVING', widget);
+    this.reset();
   }
 
   cancel(widget) {

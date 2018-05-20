@@ -3,11 +3,13 @@
   <md-card-header>
     <md-card-title>
       <h1>
+        <!-- 7. Change to originalName -->
         <span *ngIf="selectedWidget.id; else prompt">Editing {{originalName}}</span>
         <ng-template #prompt>Create</ng-template>
       </h1>
     </md-card-title>
   </md-card-header>
+  <!-- 8. Emit Outputs -->
   <form (submit)="saved.emit(selectedWidget)">
     <md-card-content>
       <md-input-container class="full-width">

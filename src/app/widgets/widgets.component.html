@@ -1,9 +1,13 @@
 <div class="container">
+  <!-- 1. Property binding widgets -->
+  <!-- 8. Add Outputs -->
   <app-widgets-list class="col-50" [widgets]="widgets"
                     (selected)="selectWidget($event)"
                     (deleted)="deleteWidget($event)">
   </app-widgets-list>
 
+  <!-- 6. Sending a single widget -->
+  <!-- 8. Add Outputs -->
   <app-widget-detail class="col-50" [widget]="currentWidget"
                      (saved)="saveWidget($event)"
                      (cancelled)="cancel($event)">
