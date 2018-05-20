@@ -15,6 +15,7 @@ export class WidgetsComponent implements OnInit {
 
   ngOnInit() {
     this.widgets = this.widgetsService.widgets;
+    // 3. Calling reset every time it loads
     this.reset();
   }
 
@@ -22,15 +23,19 @@ export class WidgetsComponent implements OnInit {
     this.selectedWidget = widget;
   }
 
+  // 3. Creating a reset method. What this does is it just says 'hey, I want to reset it' so it creates an empty object. By doing
   reset() {
     this.selectedWidget = { id: null, name: '', description: ''};
   }
 
-  saved(widget) {
+  // 5. This method takes a widget. Once it is saved, we are resetting it. 
+  save(widget) {
     console.log('SAVING', widget);
+    this.reset();
   }
 
-  cancelled(widget) {
+  // 4. Creating a cancel method so every time the user clicks cancel, it resets the widget
+  cancel(widget) {
     this.reset();
   }
 }

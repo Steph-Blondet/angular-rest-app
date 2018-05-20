@@ -34,10 +34,17 @@
           </h1>
         </md-card-title>
       </md-card-header>
-      <form (submit)="saved(selectedWidget)" #formRef="ngForm">
+      <!-- 1. Add a Form. #formRef is a local reference that then we are using to disable or enable the submit button -->
+      <!-- 5. On submit, calling the save method in the component -->
+      <form #formRef="ngForm"
+            (submit)="save(selectedWidget)">
         <md-card-content>
           <md-input-container class="full-width">
-            <input mdInput required placeholder="Name" [(ngModel)]="selectedWidget.name" type="text" name="name">
+            <!-- 2. Adding an input box and using ngModel I'm just binding it to selectedWidget.name and selectedWidget.description -->
+            <input required 
+                   mdInput placeholder="Name" 
+                   [(ngModel)]="selectedWidget.name" 
+                   type="text" name="name">
           </md-input-container>
           <md-input-container class="full-width">
             <input mdInput placeholder="Description" [(ngModel)]="selectedWidget.description" type="text" name="description">
@@ -45,7 +52,7 @@
         </md-card-content>
         <md-card-actions>
           <button type="submit" [disabled]="!formRef.valid" md-button>Save</button>
-          <button type="button" md-button (click)="cancelled(selectedItem)">Cancel</button>
+          <button type="button" md-button (click)="cancel(selectedItem)">Cancel</button>
         </md-card-actions>
       </form>
     </md-card>
