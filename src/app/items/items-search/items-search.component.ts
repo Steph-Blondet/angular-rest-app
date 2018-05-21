@@ -15,14 +15,18 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ItemsSearchComponent implements OnInit {
   @Output() onResults = new EventEmitter();
+  // 3. Able to get a reference in my component. It looks for a local template variable and it creates a reference for you 
   @ViewChild('itemsSearch') itemsSearch;
 
   constructor(private itemsService: ItemsService) {
   }
 
   ngOnInit() {
+    // 4. Use this reference to attach an initial output to
     const search$ = Observable.fromEvent(this.getNativeElement(this.itemsSearch), 'keyup')
+      // It takes a bunch of input, takes the last thing
       .debounceTime(200)
+      // If you start typing and is the same value, it is going to ignore it. Nothing has changed so no need to act upon it. 
       .distinctUntilChanged()
       .map((event: any) => event.target.value)
       .switchMap(term => this.itemsService.search(term))
