@@ -13,9 +13,14 @@ import { WidgetsService } from '../shared/widgets.service';
 export class HomeComponent implements OnInit {
   items: Item[];
   widgets: Widget[];
+  myStatus = 'active';
 
   constructor(private itemsService: ItemsService,
               private widgetsService: WidgetsService) {
+  }
+
+  logout($event) {
+    this.myStatus = "LOGGED OUT!";
   }
 
   ngOnInit() {
